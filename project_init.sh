@@ -44,3 +44,9 @@ cd wrk
 make
 sudo cp wrk /usr/local/bin/
 
+# Ubuntu 24.04
+wget https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img
+wget https://cloud-images.ubuntu.com/noble/current/unpacked/noble-server-cloudimg-amd64-vmlinuz-generic
+wget https://cloud-images.ubuntu.com/noble/current/unpacked/noble-server-cloudimg-amd64-initrd-generic
+
+
