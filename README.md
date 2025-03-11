@@ -13,7 +13,8 @@ In our project we use QEMU, Firecracker, KVM, and OSv to test performance of Fir
 Using c6220 at APT Cluster on CloudLab, the node has Intel Xeon Processor E5-2650 v2@2.6GHz with 8 cores and 64GB of RAM, running Ubuntu 20.04 system.  
 To run our project, run script `project_init.sh` to download Docker, QEMU, KVM, Firecracker, OSv, and wrk.
 
-## QEMU
+## Set up QEMU
+`project_init.sh` script already download vmlinuz, initrd and image for Ubuntu 24.04, use command:  
 ```
 qemu-system-x86_64 -enable-kvm -M microvm \
     -m 1024 -smp 2 \
@@ -25,4 +26,19 @@ qemu-system-x86_64 -enable-kvm -M microvm \
     -netdev user,id=net0,hostfwd=tcp::2222-:22 -device virtio-net-device,netdev=net0 \
     -nographic
 
+```  
+to use start and connect to Ubuntu 24.04 on QEMU.
+
+## Set up Firecracker
+Run `firecracker.sh`first to download Ubuntu24.04 kernal and set up ssh key. Then run `setfc.sh`, then open another terminal and run `startfc.sh` to start and connect to Ubuntu 24.04 on Firecracker
+
+## Simple server
+In our project to test performance between QEMU and Firecracker, we use Nginx to run a simple server, using command:  
 ```
+sudo apt update
+sudo apt install dialog apt-utils -y
+sudo apt install nginx -y
+sudo systemctl start nginx
+sudo systemctl enable nginx
+```  
+to install and start the nginx server
