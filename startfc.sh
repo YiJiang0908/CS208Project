@@ -40,6 +40,13 @@ sudo curl -X PUT --unix-socket "${API_SOCKET}" \
 KERNEL="./$(ls vmlinux* | tail -1)"
 KERNEL_BOOT_ARGS="console=ttyS0 reboot=k panic=1 pci=off"
 
+sudo curl -X PUT --unix-socket "${API_SOCKET}" \
+    --data "{
+        \"vcpu_count\": 2,
+        \"mem_size_mib\": 1024
+    }" \
+    "http://localhost/machine-config"
+
 ARCH=$(uname -m)
 
 if [ ${ARCH} = "aarch64" ]; then

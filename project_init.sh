@@ -35,3 +35,12 @@ cp firecracker /usr/local/bin/firecracker
 git clone https://github.com/cloudius-systems/osv.git
 cd osv && git submodule update --init --recursive
 ./scripts/setup.py
+
+#wrk
+sudo apt update
+sudo apt install git build-essential clang libssl-dev -y
+git clone https://github.com/wg/wrk.git
+cd wrk
+make
+sudo cp wrk /usr/local/bin/
+
