@@ -11,4 +11,4 @@ In our project we use QEMU, Firecracker, KVM, and OSv to test performance of Fir
 
 ## Experimental Setup
 Using c6220 at APT Cluster on CloudLab, the node has Intel Xeon Processor E5-2650 v2@2.6GHz with 8 cores and 64GB of RAM, running Ubuntu 20.04 system.  
-To run our project, run script 'project_init.sh' to download Docker, QEMU, KVM, Firecracker, OSv, and wrk.
+To run our project, run script `project_init.sh` to download Docker, QEMU, KVM, Firecracker, OSv, and wrk.
