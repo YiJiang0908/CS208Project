@@ -20,10 +20,10 @@ qemu-system-x86_64 -enable-kvm -M microvm \
     -m 1024 -smp 2 \
     -kernel noble-server-cloudimg-amd64-vmlinuz-generic \
     -initrd noble-server-cloudimg-amd64-initrd-generic \
-    -append "console=ttyS0 root=/dev/vda1 rw init=/bin/bash" \
+    -append "console=ttyS0 root=/dev/vda1 rw" \
     -device virtio-blk-device,drive=rootfs \
     -drive file=noble-server-cloudimg-amd64.img,format=qcow2,id=rootfs \
-    -netdev user,id=net0,hostfwd=tcp::2222-:22 -device virtio-net-device,netdev=net0 \
+    -netdev user,id=net0,hostfwd=tcp::2222-:22,hostfwd=tcp::8080-:80 -device virtio-net-device,netdev=net0 \
     -nographic
 
 ```  
