@@ -42,3 +42,11 @@ sudo systemctl start nginx
 sudo systemctl enable nginx
 ```  
 to install and start the nginx server
+
+## Startup time test
+Run `osv_test.sh` to test osv's easy example boot up and run with QEMU and Firecracker, the boot up time will be record at log files and execute time will show on standard output.
+Ubuntu 24.04 will be built and booted up during set up QEMU/Friecracker step, so can connect to and check the bootup time.
+
+## Server load test
+Run `wrk_test.sh` to use wrk with different status request, and during this peroid to see how CPU and Memory used.
+
